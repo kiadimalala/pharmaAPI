@@ -10,6 +10,6 @@ const app = express()
 app.use(express.json())
 
 //Mount route
-app.use('.netlify/functions/api',pharmacies)
+app.use('/.netlify/functions/api',pharmacies)
 
 module.exports.handler = serverless(app);
