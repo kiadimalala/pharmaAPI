@@ -11,6 +11,7 @@ Users can specify their location or city to filter the results for nearby pharma
 The API retrieves this information from a regularly updated database, ensuring the accuracy of the listings.
 Each pharmacy entry includes the following information:
 - name: The name of the pharmacy.
-- city: The city where the pharmacy is situated.
-- address: The physical address of the pharmacy.
+- location:
+  - city: The city where the pharmacy is situated.
+  - address: The physical address of the pharmacy.
 - phones: Contact numbers for the pharmacy.
