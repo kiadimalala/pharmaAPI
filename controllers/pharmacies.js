@@ -40,13 +40,13 @@ exports.getPharmacies = async (req, res, next) => {
       pharma.name = tdElements[0].querySelector("b").textContent.trim();
       pharma.date = tdElements[0].textContent.replace(pharma.name, "").trim();
 
-      const locationParts = tdElements[1].textContent.trim().split(' - ');
+      const locationParts = tdElements[1].textContent.trim().split(" - ");
 
       pharma.location = {
         city: locationParts[0],
         address: locationParts[1],
       };
-      
+
       pharma.phone = tdElements[2].textContent
         .split("\n")
         .map((line) => line.trim())
@@ -54,16 +54,16 @@ exports.getPharmacies = async (req, res, next) => {
         .join("");
 
       pharma.phone = formatPhoneNumbers(pharma.phone);
-      return pharma
+      return pharma;
     })
   );
 
   await browser.close();
-  console.log("browser closed")
+  console.log("browser closed");
 
   res.status(200).json({
     success: true,
     data: body,
   });
-  
+
 };
