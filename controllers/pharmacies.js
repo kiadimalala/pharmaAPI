@@ -60,10 +60,10 @@ exports.getPharmacies = async (req, res, next) => {
 
   await browser.close();
   console.log("browser closed")
-  if(body.length>0){
-    res.status(200).json({
-      success: true,
-      data: body,
-    });
-  }
+
+  res.status(200).json({
+    success: true,
+    data: body,
+  });
+  
 };
