@@ -5,6 +5,7 @@ const puppeteer = require("puppeteer");
 //@access   Public
 
 exports.getPharmacies = async (req, res, next) => {
+  
   const browser = await puppeteer.launch({ headless: "new" });
 
   console.log("browser launched");
@@ -58,9 +59,11 @@ exports.getPharmacies = async (req, res, next) => {
   );
 
   await browser.close();
-
-  res.status(200).json({
-    success: true,
-    data: body,
-  });
+  console.log("browser closed")
+  if(body.length>0){
+    res.status(200).json({
+      success: true,
+      data: body,
+    });
+  }
 };
