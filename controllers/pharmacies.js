@@ -6,7 +6,10 @@ const puppeteer = require("puppeteer");
 
 exports.getPharmacies = async (req, res, next) => {
   
-  const browser = await puppeteer.launch({ headless: "new" });
+  const browser = await puppeteer.launch({ 
+    headless: "new",
+    executablePath: process.env.NODE_ENV==="production"? process.env.PUPPETEER_EXECUTABLE_PATH :puppeteer.executablePath()
+  });
 
   console.log("browser launched");
   const page = await browser.newPage();
